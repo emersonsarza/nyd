@@ -77,7 +77,7 @@ const CountdownTimer = ({ name }: { name?: string }) => {
         </div>
         <div className="mt-3 text-white text-xs text-center tracking-wide italic space-y-[1px]">
           <div className="inline-flex px-1 rounded bg-black/40">
-            Come back to here when the timer
+            Come back here when the timer
           </div>
           <div className="inline-flex px-1 rounded bg-black/40">
             hits zero to reveal a special New Year
