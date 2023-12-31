@@ -58,11 +58,15 @@ export function Stories({ items }: { items: Story[] }) {
           <CardContent
             style={styles}
             className={cn(
-              "absolute rounded flex aspect-[3/4] w-[90%] items-center justify-center p-6 shadow-md",
+              "absolute rounded flex aspect-[3/4] w-[90%] items-end justify-center p-6 shadow-md",
               `bg-center bg-no-repeat bg-cover`
             )}
           >
-            {items[selectedIndex].caption}
+            {items[selectedIndex].caption ? (
+              <div className="w-[50%] text-[12px] tracking-wider text-center shadow font-bold bg-white/60 rounded p-2">
+                {items[selectedIndex].caption}
+              </div>
+            ) : null}
           </CardContent>
         </Card>
       </div>

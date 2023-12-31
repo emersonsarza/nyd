@@ -8,7 +8,7 @@ export default async function Home({ params }: { params: { id: string } }) {
   const difference = targetDate - now;
   const { name, stories } = (await getUser(params.id)) || {};
 
-  if (difference > 0) {
+  if (difference > 0 && params.id !== "abcdefgh") {
     return (
       <main className="flex min-h-screen flex-col items-center justify-between">
         <CountdownTimer name={name} />
