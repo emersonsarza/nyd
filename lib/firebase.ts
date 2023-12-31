@@ -8,6 +8,7 @@ import {
   getDoc,
   DocumentReference,
   DocumentSnapshot,
+  setDoc,
 } from "firebase/firestore/lite";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -108,3 +109,11 @@ export async function getUser(userId: string): Promise<User | null> {
     return null;
   }
 }
+
+// Add a new document in collection "cities"
+
+export const addData = async (name: string) => {
+  await setDoc(doc(db, "viewed", name), {
+    on: new Date(),
+  });
+};

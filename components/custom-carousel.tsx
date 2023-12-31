@@ -16,15 +16,17 @@ import { Story } from "@/lib/firebase";
 
 export function CarouselDemo({
   stories,
+  name,
 }: {
   stories: (Story & { items: Story[] })[];
+  name: string;
 }) {
   return (
     <Carousel className="relative w-full h-screen">
       <CarouselContent className="h-screen m-0">
         {stories.map((story, index) => (
           <CarouselItem className="relative h-full rounded-xl p-0" key={index}>
-            <Stories items={story.items} />
+            <Stories items={story.items} index={index} name={name} />
           </CarouselItem>
         ))}
       </CarouselContent>

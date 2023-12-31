@@ -4,9 +4,17 @@ import * as React from "react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { Story } from "@/lib/firebase";
+import { Story, addData } from "@/lib/firebase";
 
-export function Stories({ items }: { items: Story[] }) {
+export function Stories({
+  items,
+  name,
+  index,
+}: {
+  items: Story[];
+  name: string;
+  index: number;
+}) {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
     e.preventDefault();
@@ -25,6 +33,11 @@ export function Stories({ items }: { items: Story[] }) {
       setSelectedIndex((i) => (i - 1 < 0 ? i : i - 1));
     }
   };
+
+  React.useEffect(() => {
+    addData(`${name}-${index}-${selectedIndex}`);
+  }, [selectedIndex]);
+
   const styles = items[selectedIndex].bg.startsWith("https")
     ? { backgroundImage: `url("${items[selectedIndex].bg}")` }
     : { backgroundColor: items[selectedIndex].bg };
